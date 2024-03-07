@@ -64,7 +64,7 @@ class GraphPropMatchingLayer(GraphPropLayer):
           node_states: [n_nodes, node_state_dim] float tensor, node states.
           from_idx: [n_edges] int tensor, from node indices for each edge.
           to_idx: [n_edges] int tensor, to node indices for each edge.
-          graph_idx: [n_onodes] int tensor, graph id for each node.
+          graph_idx: [n_nodes] int tensor, graph id for each node.
           n_graphs: integer, number of graphs in the batch.
           similarity: type of similarity to use for the cross graph attention.
           edge_features: if not None, should be [n_edges, edge_feat_dim] tensor,

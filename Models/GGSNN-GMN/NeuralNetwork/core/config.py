@@ -74,7 +74,7 @@ def get_bb_features_size(features_type):
 
 def update_config_datasetone(config_dict, outputdir, featuresdir):
     """Config for Dataset-1."""
-    inputdir = "/input/Dataset-1/"
+    inputdir = "/home/ivan/Workspace/binary_function_similarity/DBs/Dataset-1/"#"/input/Dataset-1/"
 
     # Training
     config_dict['training']['df_train_path'] = \
@@ -245,5 +245,4 @@ def get_config(args):
     elif args.dataset == 'vuln':
         update_config_datasetvuln(
             config_dict, args.outputdir, args.featuresdir)
-
     return config_dict

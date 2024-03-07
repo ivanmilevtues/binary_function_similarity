@@ -68,9 +68,9 @@ def compute_cross_attention(x, y, sim):
     return attention_x, attention_y
 
 
-def batch_block_pair_attention(data,
-                               block_idx,
-                               n_blocks,
+def batch_block_pair_attention(data,       # This is graph data - features
+                               block_idx,  # these are the indexes for each graph
+                               n_blocks,   # this is number of graphs
                                similarity='dotproduct'):
     """Compute batched attention between pairs of blocks.
 
@@ -118,7 +118,7 @@ def batch_block_pair_attention(data,
     # restricting n_blocks to be a integer constant here and using the plain
     # for loop.
     for i in range(0, n_blocks, 2):
-        x = partitions[i]
+        x = partitions[i] # gets the pairs
         y = partitions[i + 1]
         attention_x, attention_y = compute_cross_attention(x, y, sim)
         results.append(attention_x)

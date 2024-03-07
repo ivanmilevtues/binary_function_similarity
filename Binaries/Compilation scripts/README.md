@@ -50,7 +50,9 @@ deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe
 
 - Add the following apt-repository
 ```bash
-sudo add-apt-repository ppa:jonathonf/gcc-9.0
+apt install software-properties-common # First this
+add-apt-repository ppa:jonathonf/gcc-9.0
+add-apt-repository ppa:ubuntu-toolchain-r/test # This works
 ```
 
 - Add the following apt-key:
@@ -136,37 +138,37 @@ file systems may not be case sensitive).
 ## Step 3: Compiling the binaries
 
 ### Step 3.1: Download the source from the following locations:
-* UnRAR:
+* UnRAR: [x] - running; check [x]; copied [x]
   - Direct download: https://www.rarlab.com/rar/unrarsrc-5.5.3.tar.gz
-
-* ClamAV:
+  
+* ClamAV: [ ] TODO:
   - Git repository: https://github.com/Cisco-Talos/clamav-devel.git
   - branch: `dev/0.102`, commit: `ee5a160840309eb933e73f4268a1e67f9e77961d`
 
-* Curl
+* Curl [ ] Problematic - cannot get all binaries todo
   - Git repository: https://github.com/curl/curl
   - branch: `master`, commit: `d81dbae19f8876ad472e445d89760970c79cceaa`
  
-* Nmap
+* Nmap [x] running; check [x], copied [x]
   - Direct download: https://nmap.org/dist/nmap-7.80.tar.bz2
 
-* OpenSSL
+* OpenSSL [x] running; check [x], copied [x]
   - Git repository: https://github.com/openssl/openssl.git
   - branch: `master`, commit: `187753e09ceab4c85a0041844e749658e8f712d3`
 
-* Zlib
+* Zlib [x] running; check [x], copied [x]
   - Git repository: https://github.com/madler/zlib
   - branch: `master`, commit: `cacf7f1d4e3d44d871b605da3b647f07d718623f`
 
-* Z3
+* Z3 [x] running; check [x] - running
   - Git repository: https://github.com/Z3Prover/z3
   - branch: `master`, commit: `0b486d26daea05f918643a9d277f12027f0bc2f6`
 
 ### Step 3.2: Apply the patches
 
 * **Clamav**:
-  - Apply the patch to the configure file: `git apply configure.patch`
-  - ClamAV requires full installations of Zlib and OpenSSL. We can compile these libraries for each architecture in order to configure ClamAV building script to point to them (with-ssl, with-zlib options). We provide a helper script under the `openssl/` and the `zlib` directories named `automate_all_for_clam.sh` that can be used to generate the required libraries.
+  - Done: Apply the patch to the configure file: `git apply configure.patch`
+  - TODO1: ClamAV requires full installations of Zlib and OpenSSL. We can compile these libraries for each architecture in order to configure ClamAV building script to point to them (with-ssl, with-zlib options). We provide a helper script under the `openssl/` and the `zlib` directories named `automate_all_for_clam.sh` that can be used to generate the required libraries.
 
 * **Z3**:
   - Apply the patches: `git apply configure.patch`

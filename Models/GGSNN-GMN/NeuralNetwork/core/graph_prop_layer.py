@@ -196,7 +196,7 @@ class GraphPropLayer(snt.AbstractModule):
 
         Args:
           node_states: [n_nodes, node_state_dim] float tensor, the input node
-            states.
+            states. - just encoder applied
           node_state_inputs: a list of tensors used to compute node updates.  Each
             element tensor should have shape [n_nodes, feat_dim], where feat_dim can
             be different.  These tensors will be concatenated along the feature
@@ -224,7 +224,7 @@ class GraphPropLayer(snt.AbstractModule):
 
         if self._node_update_type == 'gru':
             _, new_node_states = snt.GRU(self._node_state_dim)(
-                node_state_inputs, node_states)
+                node_state_inputs, node_states)  # inputs and prev state
             return new_node_states
         else:
             mlp_output = snt.nets.MLP(

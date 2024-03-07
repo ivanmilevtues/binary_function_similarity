@@ -209,6 +209,7 @@ def main():
         model_validate(config)
 
     if args.test:
+        config['testing']['full_tests_inputs'] = ['.' + v for v in config['testing']['full_tests_inputs']]
         log.info("Running model testing")
         model_test(config)
 

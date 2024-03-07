@@ -30,6 +30,13 @@ docker run --rm \
     -v <path_to_the_output_dir>:/output \
     -it gnn-preprocessing /code/gnn_preprocessing.py -i /input [--training] -o /output
 ```
+```bash
+docker run --rm \
+    -v /home/ivan/Workspace/binary_function_similarity/DBs/Dataset-1/features/training/acfg_disasm_Dataset-1_training:/input \
+    -v /home/ivan/Workspace/binary_function_similarity/DBs/Dataset-1/training_Dataset-1.csv:/training_data \
+    -v /home/ivan/Workspace/binary_function_similarity/Models/GGSNN-GMN/training_out:/output \
+    -it gnn-preprocessing /code/gnn_preprocessing.py -i /input --training -o /output
+```
 
 You can see all options of the `gnn_preprocessing.py` command with:
 ```bash
