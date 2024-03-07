@@ -4,7 +4,6 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get install -y git python3-pip 
 
 RUN git config --global user.name "ivanmilevtues"
-RUN git config --global user.password "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"
 
 
 RUN mkdir /code
